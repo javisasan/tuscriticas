@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  db:
+    image: "mysql:5.7"
+    #image: "arm64v8/mysql"
+    container_name: tcdb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - "./backend/database:/docker-entrypoint-initdb.d"
+    ports:
+      - "3306:3306"
+    networks:
+      - tuscriticas
+
+  backend:
+    depends_on:
+      - db
+    build: ./backend
+    restart: unless-stopped
+    container_name: tc_back
+    ports:
+      - "8080:80"
+    # Uncomment volumes section for development
+    volumes:
+      - "./backend/:/app"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: tcdb
+    networks:
+      - tuscriticas
+
+  frontend:
+    depends_on:
+      - db
+      - backend
+    build: ./frontend
+    restart: unless-stopped
+    container_name: tc_front
+    ports:
+      - "80:3000"
+    # Uncomment volumes section for development
+    # Then change Dockerfile to entrypoint and run npm install inside container
+    volumes:
+      - "./frontend/:/app"
+    networks:
+      - tuscriticas
+
+networks:
+  tuscriticas:

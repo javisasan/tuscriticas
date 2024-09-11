@@ -1,0 +1,23 @@
+index:
+     path: /
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\SearchMovieController::index
+
+search_movie:
+     path: /search
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\SearchMovieController::searchMovie
+
+search_movie_from_provider:
+     path: /search/provider
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\SearchMovieController::searchMovieFromProvider
+
+import_movie:
+     path: /importmovie
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\ImportMovieController::importMovie
+
+get_movie_by_slug:
+     path: /movie/{slug}
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\MovieController::getMovie
+
+get_latest_movies:
+     path: /latest
+     controller: CommonPlatform\Context\App\Infrastructure\UI\Controller\MovieController::getLatestMovies
