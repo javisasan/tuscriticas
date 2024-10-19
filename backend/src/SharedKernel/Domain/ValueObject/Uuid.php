@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SharedKernel\Domain\ValueObject;
+namespace CommonPlatform\SharedKernel\Domain\ValueObject;
 
 class Uuid
 {
