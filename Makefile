@@ -32,8 +32,11 @@ nodev:
 shell:
 	@docker exec -ti $(CONTAINER) bash
 
-test:
-	@docker exec $(CONTAINER) php bin/phpunit --stop-on-failure
+test_old:
+	@docker exec $(CONTAINER) php bin/phpunit --stop-on-failure --colors=always
+
+unit:
+	@docker exec $(CONTAINER) ./vendor/bin/phpunit --stop-on-failure --colors=always
 
 cache-clear:
 	@docker exec $(CONTAINER) php bin/console cache:clear
