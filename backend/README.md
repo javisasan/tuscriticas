@@ -21,3 +21,14 @@ Todo:
 - Add Rabbit
 - Add Redis
 - Add Elastic
+
+JWT Authentication:
+https://vabadus.es/blog/symfony/autenticacion-jwt-en-symfony
+https://vabadus.es/blog/symfony/sistema-de-refresco-de-tokens-jwt-en-symfony
+https://medium.com/@kcsanjeeb091/implementing-jwt-based-authentication-with-next-js-v14-and-nextauth-v4-e3efca4b158b
+https://medium.com/@agharsaifeddine/set-up-jwt-authentication-with-symfony-using-the-lexikjwtauthenticationbundle-2df8e9170bec
+https://medium.com/@edouard.courty/how-to-enable-jwt-authentication-with-symfony-83a05ab2592f
+
+In order to create SSL keys, use command
+php bin/console lexik:jwt:generate-keypair
+https://symfony.com/bundles/LexikJWTAuthenticationBundle/current/index.html
